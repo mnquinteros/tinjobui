@@ -8,11 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.weaverprojects.opentinder.Model.BasicProfile;
+import com.weaverprojects.opentinder.Model.BasicJobData;
 import com.weaverprojects.opentinder.R;
 
 import org.w3c.dom.Text;
@@ -22,12 +21,12 @@ import java.util.ArrayList;
 /**
  * Created by keithweaver on 16-01-08.
  */
-public class CardAdapter extends ArrayAdapter<BasicProfile> {
+public class CardAdapter extends ArrayAdapter<BasicJobData> {
     Context context;
     int layoutResourceId;
-    ArrayList<BasicProfile> data = new ArrayList<BasicProfile>();
+    ArrayList<BasicJobData> data = new ArrayList<BasicJobData>();
 
-    public CardAdapter(Context context, int layoutResourceId, ArrayList<BasicProfile> data) {
+    public CardAdapter(Context context, int layoutResourceId, ArrayList<BasicJobData> data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
@@ -44,27 +43,31 @@ public class CardAdapter extends ArrayAdapter<BasicProfile> {
 
             holder.cardId = (CardView) row.findViewById(R.id.cardId);
             holder.profileImageView = (ImageView) row.findViewById(R.id.profileImageView);
-            holder.nameTextView = (TextView) row.findViewById(R.id.nameTextView);
+            holder.jobTitle = (TextView) row.findViewById(R.id.job_title);
             holder.ageTextView = (TextView) row.findViewById(R.id.ageTextView);
-
+            holder.location = (TextView) row.findViewById(R.id.nameTextView);
+            holder.benefits = (TextView) row.findViewById(R.id.benefits);
 
             row.setTag(holder);
         } else {
             holder = (UserHolder) row.getTag();
         }
-        BasicProfile singleProfile = data.get(position);
+        BasicJobData singleProfile = data.get(position);
 
         Picasso.with(context).load(singleProfile.getImageURL()).into(holder.profileImageView);
 
-        holder.nameTextView.setText(singleProfile.getCompanyName() + " - " + singleProfile.getLocation());
-
+        holder.jobTitle.setText(singleProfile.getJobTitle());
+        holder.location.setText(singleProfile.getCompanyName() + " - " + singleProfile.getLocation());
+        holder.benefits.setText(singleProfile.getBenefits());
         //Picasso.with(context).load("file:///android_asset/DvpvklR.png").into(imageView2);
         return row;
     }
     static class UserHolder{
         CardView cardId;
         ImageView profileImageView;
-        TextView nameTextView;
+        TextView jobTitle;
         TextView ageTextView;
+        TextView benefits;
+        TextView location;
     }
 }

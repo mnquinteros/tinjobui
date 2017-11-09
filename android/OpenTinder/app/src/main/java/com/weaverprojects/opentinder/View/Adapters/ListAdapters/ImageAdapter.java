@@ -2,16 +2,13 @@ package com.weaverprojects.opentinder.View.Adapters.ListAdapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.weaverprojects.opentinder.Model.BasicProfile;
 import com.weaverprojects.opentinder.Model.Image;
 import com.weaverprojects.opentinder.R;
 

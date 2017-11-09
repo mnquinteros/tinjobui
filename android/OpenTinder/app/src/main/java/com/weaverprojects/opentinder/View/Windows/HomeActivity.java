@@ -1,47 +1,39 @@
 package com.weaverprojects.opentinder.View.Windows;
 
 import android.app.ActionBar;
-import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-import com.weaverprojects.opentinder.Model.BasicProfile;
+import com.weaverprojects.opentinder.Model.BasicJobData;
 import com.weaverprojects.opentinder.R;
 import com.weaverprojects.opentinder.View.Adapters.ListAdapters.CardAdapter;
 
 
 import java.util.ArrayList;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-
 /**
  * Created by Keith on 2015-10-03.
  */
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
 
-    String markerZuckyImg = "http://i2.kym-cdn.com/entries/icons/facebook/000/013/564/aP2dv.jpg";
+    String markerZuckyImg = "http://static.esea.net/global/images/users/1727265.1500366719.jpg";
     public static final String TAG = "";
 
     //Tabs
 
     private ActionBar actionBar;
 
-
     //Home Activity
-    private ArrayList<BasicProfile> cardsList;
+    private ArrayList<BasicJobData> cardsList;
     private CardAdapter mArrayAdapter;
     private int i;
     SwipeFlingAdapterView flingContainer;
@@ -52,10 +44,10 @@ public class HomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_home);
 
-        getActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
         left = (ImageView) findViewById(R.id.left);
@@ -65,7 +57,7 @@ public class HomeActivity extends Activity {
 
         for(int i = 0;i < 15;i++) {
             String temp = String.valueOf(i);
-            cardsList.add(new BasicProfile("randomcode" + temp, "XHR", "Palermo, CABA", "Senior Java developer",  markerZuckyImg));
+            cardsList.add(new BasicJobData("randomcode" + temp, "XHR", "Palermo, CABA", "Senior Java developer",  markerZuckyImg));
         }
 
         mArrayAdapter = new CardAdapter(this, R.layout.cards_item, cardsList);

@@ -1,10 +1,15 @@
 package com.weaverprojects.opentinder.Service;
 
+import com.weaverprojects.opentinder.Model.CreateProfileResponse;
 import com.weaverprojects.opentinder.Model.PersonalData;
+import com.weaverprojects.opentinder.Model.PersonalDataWrapper;
 
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by mir on 31/10/17.
@@ -12,11 +17,13 @@ import retrofit2.http.POST;
 
 public interface UserService {
 
-    @GET("profile/")
-    public PersonalData getPersonalDataApplicant(String token, String userName);
+    @Headers("X-API-TOKEN: FOOBAR1")
+    @GET("applicantdata/{usertoken}")
+    Call<PersonalDataWrapper> getPersonalDataApplicant(@Path("usertoken") String token);
 
-    @POST("profile/")
-    public String getPersonalDataApplicant(@Body PersonalData profile);
+    @Headers("X-API-TOKEN: FOOBAR1")
+    @POST("applicantdata")
+    Call<CreateProfileResponse> personalDataApplicant(@Body PersonalDataWrapper profile);
 
 
 }

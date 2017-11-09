@@ -19,7 +19,7 @@ public class UserPreferences {
     @Expose
     private String interests;
 
-    @SerializedName("softSkills")
+    @SerializedName("contractType")
     @Expose
     private String contractType;
 

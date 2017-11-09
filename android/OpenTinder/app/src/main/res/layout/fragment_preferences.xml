@@ -1,5 +1,4 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,42 +16,35 @@
             android:textAppearance="@android:style/TextAppearance" />
 
         <EditText
+            android:id="@+id/techSkills"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Top 10 skills tecnicos" />
 
         <EditText
+            android:id="@+id/nonTechSkills"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Top 5 skills no tecnicos" />
 
         <EditText
+            android:id="@+id/benefits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Top 5 beneficios que te interesan" />
 
         <EditText
+            android:id="@+id/workingDayType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tipo de jornada" />
 
         <EditText
+            android:id="@+id/contractType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tipo de contrato" />
 
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/saveData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/check"
-            app:fabSize="normal" />
-
     </LinearLayout>
-
-
 
 </FrameLayout>

@@ -9,6 +9,7 @@ import java.util.List;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -17,9 +18,11 @@ import retrofit2.http.POST;
 
 public interface EngineService {
 
+    @Headers("X-API-TOKEN : FOOBAR1")
     @POST("predict-for-user/")
-    public List<PostedJob> getRecommendedJobs(@Field("user") String userToken);
+    List<PostedJob> getRecommendedJobs(@Field("user") String userToken);
 
+    @Headers("X-API-TOKEN : FOOBAR1")
     @POST("response-from-user/")
     public String postResponse(@Body UserResponse userResponse);
 

@@ -3,19 +3,19 @@ package com.weaverprojects.opentinder.Model;
 /**
  * Created by keithweaver on 16-01-08.
  */
-public class BasicProfile {
-    String profileId;
+public class BasicJobData {
+
+    String jobId;
     String companyName;
     String jobTitle;
     String reqTechSkills;
-    String reqOtherSkills;
     String benefits;
     String location;
     String imageURL;
 
 
-    public BasicProfile(String profileId, String companyName, String location, String jobTitle, String imageURL) {
-        this.profileId = profileId;
+    public BasicJobData(String profileId, String companyName, String location, String jobTitle, String imageURL) {
+        this.jobId = profileId;
         this.companyName = companyName;
         this.location = location;
         this.jobTitle = jobTitle;
@@ -23,8 +23,8 @@ public class BasicProfile {
 
     }
 
-    public void setProfileId(String profileId) {
-        this.profileId = profileId;
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
     }
 
     public String getCompanyName() {
@@ -41,14 +41,6 @@ public class BasicProfile {
 
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
-    }
-
-    public String getReqOtherSkills() {
-        return reqOtherSkills;
-    }
-
-    public void setReqOtherSkills(String reqOtherSkills) {
-        this.reqOtherSkills = reqOtherSkills;
     }
 
     public String getBenefits() {
@@ -71,14 +63,13 @@ public class BasicProfile {
         this.imageURL = imageURL;
     }
 
-    public String getProfileId() {
-        return profileId;
+    public String getJobId() {
+        return jobId;
     }
 
     public String getImageURL() {
         return imageURL;
     }
-
 
     public String getReqTechSkills() {
         return reqTechSkills;
